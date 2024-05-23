@@ -1,0 +1,57 @@
+.container {
+    background: radial-gradient(circle at 18.7% 37.8%, rgb(82, 82, 82) 0%, rgb(225, 234, 238) 90%);
+    height: 100vh;
+}
+
+.loginContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(224, 224, 224);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    height: 90%;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    margin: auto auto;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 90%;
+    transform: translate(0, -30%);
+
+}
+
+.form{
+    
+    display: flex;
+    flex-direction: column;
+    margin: auto auto;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 90%;
+    transform: translate(0, -30%);}
+
+.form > * {
+    margin-top: 100px;
+}
+
+@media screen and (min-width: 1010px) {
+    .loginContainer {
+        width: 45%;
+        height: 90%;
+    }
+}
