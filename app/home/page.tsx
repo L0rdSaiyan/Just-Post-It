@@ -21,13 +21,16 @@ export default function Home() {
 
     return (
         <div>
+            <div>
             {user ? (
                 <div>
-                    <p>Username: {user.name}</p>
+                    <p>Bem vindo, {user.name}</p>
                 </div>
             ) : (
                 <p>No user data available</p>
             )}
+            </div>
+          
         </div>
     );
 }
