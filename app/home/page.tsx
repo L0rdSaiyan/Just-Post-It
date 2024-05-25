@@ -23,7 +23,7 @@ export default function Home() {
         <div>
             {user ? (
                 <div>
-                    <p>Username: {user.username}</p>
+                    <p>Username: {user.name}</p>
                 </div>
             ) : (
                 <p>No user data available</p>

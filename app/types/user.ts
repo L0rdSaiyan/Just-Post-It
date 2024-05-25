@@ -1,5 +1,5 @@
 export interface UserType
 {
-    username : string,
-    password : string
+    name : string,
+    senha : string
 }

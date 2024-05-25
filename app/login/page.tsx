@@ -3,8 +3,10 @@ import { handler } from "../axios/axios"
 import InputPass from "../form/InputPass"
 import InputText from "../form/InputText"
 import SubmitBtn from "../form/SubmitBtn"
+import { UserType } from "../types/user"
+import { login } from "../commons/commons"
 import styles from "./loginPage.module.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 export default function Login()
 {
 
@@ -27,8 +29,8 @@ export default function Login()
     {
       event.preventDefault()
       const response = await handler.post("/login", { name: username, senha: password })
-      const data = await response.data
-      console.log(data)
+      const {name, senha} = await response.data
+      login(name,senha)
 
     }
 

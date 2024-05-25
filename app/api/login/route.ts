@@ -6,8 +6,8 @@ import Users from "@/app/models/users";
 
 export async function POST(request: NextRequest) {
     try {
-        const { name } = await request.json();
-        const userData = await Users.findOne({ where: { name: name } });
+        const { name, senha } = await request.json();
+        const userData = await Users.findOne({ where: { name: name, senha: senha }});
         if (userData) {
             return NextResponse.json(userData);
         } else {

@@ -1,8 +1,8 @@
-export const login = (username : string, password : string) =>
+export const login = (name : string, senha : string) =>
 {
     const userLogin = {
-        username: username,
-        password: password
+        name: name,
+        senha: senha
     }
     window.localStorage.setItem("userLogin", JSON.stringify(userLogin))
     //tenho que fazer .stringify pq os argumentos que o setItem espera são 2 strings :(
