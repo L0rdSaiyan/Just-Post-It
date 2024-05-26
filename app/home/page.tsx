@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { UserType } from "../types/user";
-
+import styles from "./home.module.css"
+import InputPost from "../form/InputPost";
 export default function Home() {
     const [user, setUser] = useState<UserType | null>(null);
 
@@ -21,15 +22,16 @@ export default function Home() {
 
     return (
         <div>
-            <div>
+            <div className={styles.displayName}>
             {user ? (
-                <div>
+                <>
                     <p>Bem vindo, {user.name}</p>
-                </div>
+                </>
             ) : (
                 <p>No user data available</p>
             )}
             </div>
+            <InputPost></InputPost>
           
         </div>
     );
