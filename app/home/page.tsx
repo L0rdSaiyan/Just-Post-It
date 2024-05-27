@@ -6,7 +6,7 @@ import InputPost from "../form/InputPost";
 import Posts from "../components/Posts";
 import { handler } from "../axios/axios";
 import { PostsType } from "../types/posts";
-
+import { logout } from "../commons/commons";
 export default function Home() {
   const [user, setUser] = useState<UserType | null>(null);
   const [posts, setPosts] = useState<PostsType[]>([]);
@@ -25,7 +25,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    console.table(posts);
+    console.table(`posts ${JSON.stringify(posts)}`)
   }, [posts]);
 
   useEffect(() => {
@@ -44,6 +44,14 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.displayName}>
+        {/* dps transformar isso num componente */}
+      <div className={styles.dropdown}>
+      <button className={styles.dropbtn}>Opções</button>
+      <div className={styles.dropdown_content}>
+        <button onClick={logout}>Sair</button>
+  </div>
+</div>
+
         {user ? (
           <>
             <p>Bem vindo, {user.name}</p>

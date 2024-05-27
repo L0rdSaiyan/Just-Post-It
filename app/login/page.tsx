@@ -36,7 +36,7 @@ export default function Login() {
       title: "Sucesso!",
       text: `Bem vindo, ${name}`,
       clickChange() {
-        router.push('/home')
+        router.replace('/home')
       },
     })
   }
