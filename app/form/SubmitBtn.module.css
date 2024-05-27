@@ -1,0 +1,16 @@
+.submitBtn
+{
+  padding: 15px 30px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #3d3a39;
+}
+
+.submitBtn:hover {
+    background-color: #1d1d1d;
+    transform: scale(1.1);
+  }

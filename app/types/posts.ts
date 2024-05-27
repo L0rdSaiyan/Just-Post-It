@@ -1,4 +1,5 @@
 export interface PostsType {
     titulo : string,
-    conteudo: string
+    conteudo: string,
+    authorName: string
 }

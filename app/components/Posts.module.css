@@ -1,0 +1,33 @@
+.container {
+  background-color: rgb(238, 238, 238);
+  width: 90%;
+  border-radius: 15px;
+  margin-top: 20px;
+  -webkit-box-shadow: 9px 21px 29px 0px rgba(0, 0, 0, 0.69);
+  -moz-box-shadow: 9px 21px 29px 0px rgba(0, 0, 0, 0.69);
+  box-shadow: 9px 21px 29px 0px rgba(0, 0, 0, 0.69);
+}
+
+.topContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(212, 212, 212);
+  word-wrap: break-word;
+}
+
+.authorName {
+  font-size: 20px;
+  margin-left: 10px;
+  word-wrap: break-word;
+}
+
+.titleStyle {
+  margin-left: 15px;
+  font-size: 29px;
+  margin-bottom: 10px;
+}
+
+.contentContainer {
+  padding: 15px;
+  word-wrap: break-word;
+}

@@ -3,8 +3,14 @@ import { UserType } from "../types/user";
 import { useState, useEffect } from "react";
 import SubmitBtn from "./SubmitBtn";
 import { handler } from "../axios/axios";
+import axios from "axios";
+import styles from "./InputPost.module.css"
 
-export default function InputPost() {
+interface InputPostProps {
+  handlerAfterPost: () => void;
+}
+
+export default function InputPost({handlerAfterPost} : InputPostProps) {
 
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
@@ -44,27 +50,32 @@ export default function InputPost() {
     console.table({title,content,user})
     const response = await handler.post("/postcreation",{title,content,user})
     const data = await response.data 
+    handlerAfterPost()
     console.log(data)
   };
 
   return (
-    <>
-      <form onSubmit={handlePostCreate}>
+    <div className={styles.createPost}>
+      <form onSubmit={handlePostCreate} className={styles.form}>
         <input
+        className={styles.inputText}
           type="text"
           placeholder="Titulo do post"
           onChange={handleTitleChange}
           name="titulo"
+          maxLength={50}
           value={title}
         />
         <textarea
+        maxLength={300}
+        className={styles.textarea}
           placeholder="Conteúdo"
           onChange={handleContentChange}
           value={content}
         />
-
-        <SubmitBtn text="Postar!"></SubmitBtn>
+        <SubmitBtn text="Postar!" />
       </form>
-    </>
-  );
+    </div>
+);
+
 }

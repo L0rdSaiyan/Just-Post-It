@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import Swal, { SweetAlertIcon } from "sweetalert2";
 
 type Alert = 
@@ -6,6 +7,7 @@ type Alert =
     text: string,
     icon?: SweetAlertIcon,
     confirmButton?: string
+    clickChange: () => void
 } 
 
 export const commonAlert = (alert: Alert) => {
@@ -14,5 +16,10 @@ export const commonAlert = (alert: Alert) => {
     text: alert.text,
     icon: alert.icon,
     confirmButtonText: alert.confirmButton 
-  });
+  }).then((result)=>{
+    if(result.isConfirmed)
+      {
+        alert.clickChange()
+      }
+  })
 };

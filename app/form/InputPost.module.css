@@ -1,0 +1,45 @@
+.createPost {
+    background-color: rgb(238, 238, 238);
+    width: 90%;
+    border-radius: 15px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%; 
+    height: auto;
+
+}
+
+.form >* 
+{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.textarea{
+    border: none;
+    resize: none;
+    width: 70%;
+    height: 100px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.inputText
+{
+    width: 50%;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    text-align: center;
+
+}
