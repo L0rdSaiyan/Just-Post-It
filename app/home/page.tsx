@@ -13,6 +13,7 @@ export default function Home() {
   const [user, setUser] = useState<UserType | null>(null);
   const [posts, setPosts] = useState<PostsType[]>([]);
   const [createdPost, setPostCreated] = useState<boolean>(false);
+  const [postDeleted, setPostDeleted] = useState<boolean>(false); 
 
   useEffect(() => {
     const userData = window.localStorage.getItem("userLogin");
@@ -47,10 +48,14 @@ export default function Home() {
     }
   };
 
+  const handlePostDeleted = () => {
+    getAllPosts()
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.displayName}>
-        <Dropdown event={logout} content="sair"></Dropdown>
+        <Dropdown placeholder="Opções" event={logout} content="sair"></Dropdown>
 
         {user ? (
           <>
@@ -65,7 +70,14 @@ export default function Home() {
       </div>
       <div className={styles.postsContainer}>
         {posts &&
-          posts.map((post) => <Posts key={post.id} post={post} />)}
+          posts.map((post) => (
+            <Posts
+              event={true}
+              key={post.id}
+              post={post}
+              onPostDeleted={handlePostDeleted} 
+            />
+          ))}
       </div>
     </div>
   );

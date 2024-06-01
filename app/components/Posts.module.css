@@ -15,6 +15,13 @@
   word-wrap: break-word;
 }
 
+.options {
+  align-self: flex-end; 
+  position: absolute;
+  margin-right: 15px; 
+  margin-top: 10px;
+}
+
 .authorName {
   font-size: 20px;
   margin-left: 10px;
@@ -27,56 +34,55 @@
   margin-bottom: 10px;
 }
 
-
-
 .contentContainer {
   padding: 15px;
   word-wrap: break-word;
 }
 
-.reactions
-{
+.reactions {
   border-top: 1px solid black;
+  display: flex;
   flex-direction: row;
   padding: 10px;
 }
 
-.reactions button{
+.reactions button {
   border: none;
   background-repeat: no-repeat;
   background-size: cover;  
   background-position: center;
-  width: 20px;
-  height: 20px;
-  padding: 20px;
+  width: 15px;
+  height: 15px;
+  padding: 15px;
   border-radius: 5px;
 }
 
-.reactions >*
-{
+.reactions > * {
   margin-right: 5px;
 }
-.like{
-  background-image: url("https://www.svgrepo.com/show/21106/thumbs-up.svg");
-} 
 
-.dislike 
-{
+.like {
+  background-image: url("https://www.svgrepo.com/show/21106/thumbs-up.svg");
+}
+
+.dislike {
   background-image: url("https://www.svgrepo.com/show/56144/thumb-down.svg");
 }
 
-.reactions button:hover
-{
+.reactions button:hover {
   cursor: pointer;
 }
 
-.reactions .like:hover
-{
+.reactions .like:hover {
   background-color: green;
 }
 
-.reactions .dislike:hover
-{
+.reactions .dislike:hover {
   background-color: red;
 }
 
+.titleStyle:hover
+{
+  cursor: pointer;
+  text-decoration: underline;
+}

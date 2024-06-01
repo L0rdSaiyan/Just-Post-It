@@ -32,7 +32,7 @@ export default function Post({ searchParams }: PostsSearchParams) {
         <>
             {postData && (
                 <div className={styles.container}>
-                    <Posts post={postData}></Posts>
+                    <Posts post={postData} event={false}></Posts>
                 </div>
             )}
         </>
