@@ -9,6 +9,16 @@ const Posts = db.sequelize.define('posts', {
     conteudo: {
         type: db.Sequelize.STRING
     },
+    likes : 
+    {
+        type: db.Sequelize.INTEGER,
+        defaultValue: 0
+    },
+    dislikes :
+    {
+        type: db.Sequelize.INTEGER,
+        defaultValue: 0
+    },
     authorName: {
         type: db.Sequelize.STRING,
         references: {
@@ -18,7 +28,6 @@ const Posts = db.sequelize.define('posts', {
     }
 });
 
-// Associações
 // Users.hasMany(Posts, { foreignKey: 'authorName', sourceKey: 'name' });
 // Posts.belongsTo(Users, { foreignKey: 'authorName', targetKey: 'name' });
 

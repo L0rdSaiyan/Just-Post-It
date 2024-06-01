@@ -27,7 +27,56 @@
   margin-bottom: 10px;
 }
 
+
+
 .contentContainer {
   padding: 15px;
   word-wrap: break-word;
 }
+
+.reactions
+{
+  border-top: 1px solid black;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.reactions button{
+  border: none;
+  background-repeat: no-repeat;
+  background-size: cover;  
+  background-position: center;
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.reactions >*
+{
+  margin-right: 5px;
+}
+.like{
+  background-image: url("https://www.svgrepo.com/show/21106/thumbs-up.svg");
+} 
+
+.dislike 
+{
+  background-image: url("https://www.svgrepo.com/show/56144/thumb-down.svg");
+}
+
+.reactions button:hover
+{
+  cursor: pointer;
+}
+
+.reactions .like:hover
+{
+  background-color: green;
+}
+
+.reactions .dislike:hover
+{
+  background-color: red;
+}
+

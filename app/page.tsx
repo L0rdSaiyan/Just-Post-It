@@ -1,10 +1,19 @@
-import Image from "next/image";
 
-export default function Home() {
+interface homeParams {
+
+  searchParams :
+  {
+    id: string
+  }
+
+}
+
+export default function Home({searchParams} : homeParams) {
   return (
       <>
         <h1>
           Página Inicial
+          {searchParams.id}
         </h1>
       </>
   );

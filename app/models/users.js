@@ -14,5 +14,11 @@ const Users = db.sequelize.define("users",
     }
 )
 
-// Users.sync({force:true})
+// Users.sync({force:true}).then(()=>
+// {
+//     console.log('deu bom')
+// }).catch((error)=>
+// {
+//     console.log('deu b.o aí')
+// })
 module.exports = Users

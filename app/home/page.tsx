@@ -7,17 +7,20 @@ import Posts from "../components/Posts";
 import { handler } from "../axios/axios";
 import { PostsType } from "../types/posts";
 import { logout } from "../commons/commons";
+import Dropdown from "../components/Dropdown";
+
 export default function Home() {
   const [user, setUser] = useState<UserType | null>(null);
   const [posts, setPosts] = useState<PostsType[]>([]);
   const [createdPost, setPostCreated] = useState<boolean>(false);
+
   useEffect(() => {
     const userData = window.localStorage.getItem("userLogin");
+    getAllPosts();
     if (userData) {
       try {
         const parsedUser: UserType = JSON.parse(userData);
         setUser(parsedUser);
-        getAllPosts();
       } catch (e) {
         console.error("Ocorreu um erro ao resgatar os dados do usuário", e);
       }
@@ -25,11 +28,14 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    console.table(`posts ${JSON.stringify(posts)}`)
+    console.table(`posts ${JSON.stringify(posts)}`);
   }, [posts]);
 
   useEffect(() => {
-    getAllPosts
+    if (createdPost) {
+      getAllPosts();
+      setPostCreated(false);
+    }
   }, [createdPost]);
 
   const getAllPosts = async () => {
@@ -44,13 +50,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.displayName}>
-        {/* dps transformar isso num componente */}
-      <div className={styles.dropdown}>
-      <button className={styles.dropbtn}>Opções</button>
-      <div className={styles.dropdown_content}>
-        <button onClick={logout}>Sair</button>
-  </div>
-</div>
+        <Dropdown event={logout} content="sair"></Dropdown>
 
         {user ? (
           <>
@@ -61,12 +61,12 @@ export default function Home() {
         )}
       </div>
       <div className={styles.createPostContainer}>
-        <InputPost handlerAfterPost={getAllPosts} />
+        <InputPost handlerAfterPost={() => setPostCreated(true)} />
       </div>
       <div className={styles.postsContainer}>
         {posts &&
-          posts.map((post) => <Posts key={post.authorName} post={post} />)}
-          </div>
+          posts.map((post) => <Posts key={post.id} post={post} />)}
+      </div>
     </div>
   );
 }
