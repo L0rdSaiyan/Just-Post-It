@@ -1,12 +1,14 @@
 import styles from "./Dropdown.module.css"
 
 interface propsType {
-    event?: () => void;
-    content: string,
+    event?: () => void
+    event2?: () => void
+    content: string
+    content2?: string
     placeholder: string
 }
 
-export default function Dropdown({event, content, placeholder} : propsType)
+export default function Dropdown({event, event2, content, content2, placeholder} : propsType)
 {
     return(
         <>
@@ -14,6 +16,11 @@ export default function Dropdown({event, content, placeholder} : propsType)
       <button className={styles.dropbtn}>{placeholder}</button>
       <div className={styles.dropdown_content}>
         <button onClick={event}>{content}</button>
+        {content2 &&
+        (
+            <button onClick={event2}>{content2}</button>
+        )}
+
     </div>
         </div>
         </>

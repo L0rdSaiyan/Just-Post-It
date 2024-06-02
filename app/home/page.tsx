@@ -30,6 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     console.table(`posts ${JSON.stringify(posts)}`);
+    console.log(posts)
   }, [posts]);
 
   useEffect(() => {
@@ -48,6 +49,18 @@ export default function Home() {
     }
   };
 
+  const getMostLikedPosts = async () =>
+    {
+      try{
+        const response = await handler.get("/mostlikedposts")
+        const data = await response.data
+        setPosts(data)
+      }catch(error)
+      {
+        return error
+      }
+    }
+
   const handlePostDeleted = () => {
     getAllPosts()
   };
@@ -55,7 +68,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.displayName}>
-        <Dropdown placeholder="Opções" event={logout} content="sair"></Dropdown>
+        <Dropdown placeholder="Opções" event={logout}content="sair"></Dropdown>
 
         {user ? (
           <>
@@ -69,6 +82,12 @@ export default function Home() {
         <InputPost handlerAfterPost={() => setPostCreated(true)} />
       </div>
       <div className={styles.postsContainer}>
+        <div className={styles.filters}>
+        <Dropdown placeholder="Ordenar por" content="Mais curtidos" event={getMostLikedPosts}
+         content2="Mais recentes"
+         event2={getAllPosts}
+         ></Dropdown>
+        </div>
         {posts &&
           posts.map((post) => (
             <Posts
