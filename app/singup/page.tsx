@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { handler } from "../axios/axios";
 import { commonAlert } from "../alerts";
 import { login } from "../commons/commons";
+
 export default function Login() {
   const [nome, setNome] = useState<string>("");
   const [senha, setSenha] = useState<string>("");

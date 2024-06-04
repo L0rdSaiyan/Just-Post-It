@@ -7,3 +7,67 @@
     flex-direction: column;
 }
 
+.comments
+{
+    background-color: #333333;
+    width: 90%;
+    margin-top: 20px;
+    border-radius: 12px;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+}
+
+.commentaryInputArea
+{
+    background-color: #404040;
+    border-radius: 15px;
+    width: 90%;
+    height: 90px;
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.commentaryInputArea textarea
+{
+    border: none;
+    resize: none;
+    width: 90%;
+    height: 80px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.send
+{   
+    transition: 200ms;
+    width: 35px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    background-color: transparent;
+    align-self:self-end;
+    margin-left: 10px;
+    background-image: url('https://static-00.iconduck.com/assets.00/send-icon-2048x1863-u8j8xnb6.png');
+}
+
+.send:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+/* .send:active{
+    transform: translate(10px);
+} */
+
+.commentssection
+{
+    width: 90%;
+}
