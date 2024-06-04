@@ -1,6 +1,7 @@
-const db = require('./connection')
-const Users = require("./users")
 
+const db = require("./connection");
+const Users = require('./users');
+const Comments = require('./comments')
 
 const Posts = db.sequelize.define('posts', {
     titulo: {
@@ -9,13 +10,11 @@ const Posts = db.sequelize.define('posts', {
     conteudo: {
         type: db.Sequelize.STRING
     },
-    likes : 
-    {
+    likes : {
         type: db.Sequelize.INTEGER,
         defaultValue: 0
     },
-    dislikes :
-    {
+    dislikes : {
         type: db.Sequelize.INTEGER,
         defaultValue: 0
     },
@@ -28,14 +27,16 @@ const Posts = db.sequelize.define('posts', {
     }
 });
 
+
 // Users.hasMany(Posts, { foreignKey: 'authorName', sourceKey: 'name' });
 // Posts.belongsTo(Users, { foreignKey: 'authorName', targetKey: 'name' });
+ Posts.hasMany(Comments, { foreignKey: 'postId', onDelete: 'CASCADE' });
 
 // Posts.sync({force:true}).then(()=>{
-//     console.log('deu bom')
+//      console.log('deu bom')
 // }).catch((error)=>
-// {
-//     console.log('deu b.o aí')
-// })
+//  {
+//   console.log('deu b.o aí')
+//  })
 
-module.exports = Posts
+module.exports = Posts;

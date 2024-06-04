@@ -22,6 +22,7 @@ const Comments = db.sequelize.define('comments', {
     }
 });
 
+
 // Comments.sync({ force: true })
 //   .then(() => console.log('success'))
 //   .catch((error) => console.log(error));
