@@ -56,19 +56,18 @@ export default function Login() {
           const response = await handler.post("/usercreation", { nome, senha });
           const data = response.data;
           console.log(data);
-          login(nome,senha)
+          login(nome, senha);
           commonAlert({
             text: "Cadastro realizado com sucesso!",
             title: `Bem vindo, ${nome}`,
+            clickChange: () => router.push("/home")
           });
-          setTimeout(() => {
-            router.push("/home");
-          }, 1000);
         } else {
           commonAlert({
             text: "As senhas não conferem!",
             title: "Por favor, corrija as senhas e tente novamente",
             confirmButton: "Ok",
+            clickChange: () => {}
           });
         }
       } else {
@@ -77,6 +76,7 @@ export default function Login() {
           title: "ERROR",
           icon: "error",
           confirmButton: "Ok",
+          clickChange: () => {}
         });
       }
     } catch (error) {
@@ -106,13 +106,7 @@ export default function Login() {
             value={confirm}
             placeholder="Confirme sua senha"
           />
-          {samePass ? (
-            <></>
-          ) : (
-            <>
-              <span>As senhas não conferem!</span>
-            </>
-          )}
+          {!samePass && <span>As senhas não conferem!</span>}
           <SubmitBtn text="Cadastrar" />
         </form>
       </div>
