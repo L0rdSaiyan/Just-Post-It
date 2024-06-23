@@ -4,7 +4,7 @@ import Users from "@/app/models/users";
 //No caso de informações sensíveis como usuário e senha, nós enviamos como um POST
 //Pois através do post, você não coloca tais informações direto na url
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest)  : Promise<void | Response>  {
     try {
         const { name, senha } = await request.json();
         const userData = await Users.findOne({ where: { name: name, senha: senha }});

@@ -9,7 +9,7 @@ import { login } from "../commons/commons"
 import styles from "./loginPage.module.css"
 import { useEffect, useState } from "react"
 import { commonAlert } from "../alerts"
-import { useRouter } from "next/navigation" // Correct import for App Router
+import { useRouter } from "next/navigation" 
 
 export default function Login() {
   const [username, setUsername] = useState<string>('')

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import Posts from "../../models/posts"
 import Users from "@/app/models/users";
 
-export async function POST(request: Request) {
+export async function POST(request: Request)  : Promise<void | Response>  {
     const { title, content, user } = await request.json();
     const author = await Users.findOne({ where: { name: user } });
 

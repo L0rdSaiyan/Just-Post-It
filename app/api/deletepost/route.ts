@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
 import Posts from "@/app/models/posts";
-export async function DELETE(request:NextRequest) {
+export async function DELETE(request:NextRequest): Promise<void | Response>  {
 
     const {postId} = await request.json()
 
@@ -12,7 +12,9 @@ export async function DELETE(request:NextRequest) {
         })
     }catch(error)
     {
-        return error
+        return NextResponse.json({
+            error
+        })
     }
     
 }

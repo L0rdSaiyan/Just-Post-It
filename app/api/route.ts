@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export async function GET(req : any, res : any) {
+export async function GET(req : any, res : any)  : Promise<void | Response>  {
     
     if(req.method === "GET")
     {

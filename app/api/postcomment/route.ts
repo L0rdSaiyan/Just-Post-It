@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Comments from "@/app/models/comments"
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest)  : Promise<void | Response>  {
 
     const {authorName, postId, content} = await request.json()
 

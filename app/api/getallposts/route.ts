@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import Posts from "@/app/models/posts";
 
-export async function GET() {
+export async function GET() : Promise<void | Response>  {
   try {
     const allPosts = await Posts.findAll({
       order: [['createdAt', 'DESC']]

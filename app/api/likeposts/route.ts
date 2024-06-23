@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import Posts from "@/app/models/posts";
-export async function PUT(request : Request) {
+export async function PUT(request : Request)  : Promise<void | Response>  {
     try{
         const {id} = await request.json()
         const post = await Posts.findOne({where : {id:id}})

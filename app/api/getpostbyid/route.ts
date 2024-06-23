@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest} from "next/server";
 import Posts from "@/app/models/posts";
-export async function POST(request : NextRequest) {
+export async function POST(request : NextRequest) : Promise<void | Response>  {
     
     const {postId} = await request.json()
 
@@ -10,7 +10,9 @@ export async function POST(request : NextRequest) {
         return NextResponse.json({postData})
     }catch(error)
     {
-        return error
+        return NextResponse.json({
+            error
+        })
     }
 
 }

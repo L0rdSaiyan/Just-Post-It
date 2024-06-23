@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 const User = require('../../models/users'); 
 
-export async function POST(request : Request) {
+export async function POST(request : Request)  : Promise<void | Response>  {
   try {
     const { nome, senha } = await request.json();
 
